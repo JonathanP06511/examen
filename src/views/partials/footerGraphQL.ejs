@@ -1,0 +1,29 @@
+<script>
+
+    document.getElementById('createForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const title = document.getElementById('titleG').value;
+        const albun = document.getElementById('albunG').value;
+        console.log(title, albun);
+        createSong(title, albun);
+    })
+
+    async function createSong(title, albun) {
+        const mutation= `
+        mutation{
+            register(
+                title: "${title}", 
+                albun "${albun}")
+        }`;
+        const response = await fetch('http://localhost:3000/graphql', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query: mutation })
+        });
+        console.log(response);
+        window.location.href = '/api/songs/graph';
+    }
+
+</script>

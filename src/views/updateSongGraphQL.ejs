@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Song</title>
+    <%- include('partials/head') %>
+</head>
+<body>
+    
+    <div class="container">
+        <form id="editForm">
+            <input type="hidden" id="id" name="id" value="<%= data[0].id %>">
+            <input type="text" id="title" name="title" value="<%= data[0].title %>" placeholder="Titulo" autofocus>
+            <input type="text" id="albun" name="albun" value="<%= data[0].albun %>" placeholder="Albun" autofocus>
+            <button type="submit">Update Song</button>
+        </form>
+    </div>
+
+    <%- include('partials/footerGraphQL') %>
+</body>
+</html>

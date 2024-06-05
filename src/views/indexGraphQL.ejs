@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GraphQL CLI</title>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <div class="container">
+    <h1>Cuarteto de Nos</h1>
+  </div>
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <td>N°</td>
+          <td>Title</td>
+          <td>Albun</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(rows){ %> <% for(let i=0; i< rows.length; i++){ %>
+            <tr>
+              <td><%= (i+1) %></td>
+              <td><%= rows[i].title %></td>
+              <td><%= rows[i].albun %></td>
+              <td>
+                <a onclick="deleteSong(`<%= rows[i].id %>`)">Delete</a>
+                <a href="/api/songs/edit/<%- rows[i].id%>">Update</a>
+              </td>
+            </tr>          
+          <% } %>
+        <%  }%>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <div class="container">
+    <form id="createForm">
+      <input type="text" id="titleG" name="title" placeholder="Titulo" autofocus>
+      <input type="text" id="albunG" name="albun" placeholder="Albun" autofocus>
+      <button type="submit">Save song</button>
+    </form>
+  </div>
+  
+  <%- include('partials/footerGraphQL') %>
+</body>
+</html>
