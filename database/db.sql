@@ -1,5 +1,0 @@
-CREATE TABLE song(
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    albun VARCHAR(255) NOT NULL
-);
